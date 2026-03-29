@@ -1,4 +1,20 @@
-import { join } from "node:path";
+const express = require('express');
+const { createServer } = require('node:http');
+const { join } = require('node:path');
+const { hostname } = require('node:os');
+const basicAuth = require('express-basic-auth'); // 追加
+
+const app = express();
+
+// --- ここからパスワード設定を追加 ---
+app.use(basicAuth({
+    users: { 'admin': 'your-password-here' }, // ユーザー名: パスワード（好きなものに変更）
+    challenge: true,
+    realm: 'Private Property',
+}));
+// --- ここまで ---
+
+// ... この下に元のコード（app.use(express.static(...)) など）が続く ...import { join } from "node:path";
 import { hostname } from "node:os";
 import { createServer } from "node:http";
 import express from "express";

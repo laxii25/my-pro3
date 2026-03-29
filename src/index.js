@@ -8,7 +8,7 @@ const app = express();
 
 // --- ここからパスワード設定を追加 ---
 app.use(basicAuth({
-    users: { 'admin': 'your-password-here' }, // ユーザー名: パスワード（好きなものに変更）
+    users: { 'admin': 'laxii256' }, // ユーザー名: パスワード（好きなものに変更）
     challenge: true,
     realm: 'Private Property',
 }));
